@@ -1264,85 +1264,205 @@ section {
 }
 
 
-/* =========================================
-   TABLE
-========================================= */
+/* ========================================
+   JADWAL KULIAH
+======================================== */
 
-.table-wrapper {
+.schedule-info {
+    text-align: center;
+    margin-bottom: 30px;
+}
 
-    overflow-x: auto;
+.schedule-info h3 {
+    font-size: 22px;
+    margin-bottom: 5px;
+    color: #ffffff;
+}
+
+.schedule-info p {
+    color: #999999;
+    margin: 3px 0;
+    font-size: 14px;
 }
 
 
-table {
+/* TABLE */
 
+.schedule-table {
     width: 100%;
-
-    min-width: 700px;
-
+    min-width: 1000px;
     border-collapse: collapse;
+    background-color: #101010;
 }
 
 
-thead {
+/* HEADER */
 
-    background: var(--red);
+.schedule-table thead {
+    background: #c90000;
 }
 
-
-th {
-
-    padding: 16px;
-
-    text-align: left;
-
-    font-size: 11px;
-
-    letter-spacing: 1px;
-
+.schedule-table th {
+    padding: 14px 10px;
+    color: #ffffff;
+    text-align: center;
+    font-size: 12px;
     text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: 1px solid #333333;
 }
 
 
-td {
+/* BODY */
 
-    padding: 15px;
-
-    border-bottom: 1px solid #292929;
-
-    color: #bbb;
-
+.schedule-table td {
+    padding: 13px 10px;
+    color: #cccccc;
     font-size: 13px;
+    border: 1px solid #2b2b2b;
+    vertical-align: middle;
 }
 
 
-tbody tr {
+/* NOMOR */
 
-    background: #111;
-
-    transition: 0.3s;
-}
-
-
-tbody tr:nth-child(even) {
-
-    background: #151515;
-}
-
-
-tbody tr:hover {
-
-    background: #260000;
-}
-
-
-td:first-child {
-
-    color: var(--red-light);
-
+.schedule-table td:first-child {
+    text-align: center;
+    color: #ff1e1e;
     font-weight: bold;
 }
 
+
+/* HARI */
+
+.schedule-table td:nth-child(2) {
+    text-align: center;
+    color: #ff1e1e;
+    font-weight: bold;
+}
+
+
+/* WAKTU */
+
+.schedule-table td:nth-child(3) {
+    text-align: center;
+    white-space: nowrap;
+    color: #ffffff;
+}
+
+
+/* KODE */
+
+.schedule-table td:nth-child(4) {
+    text-align: center;
+    color: #bbbbbb;
+    white-space: nowrap;
+}
+
+
+/* SKS */
+
+.schedule-table td:nth-child(6) {
+    text-align: center;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+
+/* RUANGAN */
+
+.schedule-table td:nth-child(8) {
+    text-align: center;
+    white-space: nowrap;
+}
+
+
+/* BARIS */
+
+.schedule-table tbody tr {
+    background-color: #111111;
+    transition: 0.3s;
+}
+
+.schedule-table tbody tr:nth-child(even) {
+    background-color: #181818;
+}
+
+
+/* HOVER */
+
+.schedule-table tbody tr:hover {
+    background-color: #2a0000;
+    transform: scale(1.005);
+}
+
+
+/* FOOTER */
+
+.schedule-table tfoot {
+    background-color: #d00000;
+}
+
+.schedule-table tfoot td {
+    color: #ffffff;
+    font-weight: bold;
+    padding: 14px 10px;
+    border: 1px solid #333333;
+}
+
+.schedule-table tfoot td:first-child {
+    text-align: right;
+}
+
+
+/* RESPONSIVE */
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid #292929;
+}
+
+
+/* Scrollbar */
+
+.table-wrapper::-webkit-scrollbar {
+    height: 8px;
+}
+
+.table-wrapper::-webkit-scrollbar-track {
+    background: #111111;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb {
+    background: #c90000;
+    border-radius: 10px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb:hover {
+    background: #ff1e1e;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+    .schedule-info h3 {
+        font-size: 19px;
+    }
+
+    .schedule-info p {
+        font-size: 12px;
+    }
+
+    .schedule-table th,
+    .schedule-table td {
+        font-size: 11px;
+        padding: 10px 8px;
+    }
+
+}
 
 /* =========================================
    CONTACT
