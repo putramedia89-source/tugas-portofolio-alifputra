@@ -1711,3 +1711,121 @@ footer p {
     }
 
 }
+
+
+/* ========================================
+   JAVASCRIPT ANIMATION
+   APF PORTFOLIO
+======================================== */
+
+/* Hero entrance */
+.hero-content {
+    animation: heroEnter 1s ease-out both;
+}
+
+@keyframes heroEnter {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Scroll reveal */
+.js-reveal {
+    opacity: 0;
+    transform: translateY(35px);
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+.js-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger animation */
+.js-reveal[data-delay="1"] {
+    transition-delay: 0.1s;
+}
+
+.js-reveal[data-delay="2"] {
+    transition-delay: 0.2s;
+}
+
+.js-reveal[data-delay="3"] {
+    transition-delay: 0.3s;
+}
+
+/* Hover pada kartu */
+.project-card,
+.skill-card,
+.experience-card,
+.gallery-item,
+.gallery-video {
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.project-card:hover,
+.skill-card:hover,
+.experience-card:hover,
+.gallery-item:hover,
+.gallery-video:hover {
+    transform: translateY(-7px);
+    border-color: #ff1e1e;
+    box-shadow: 0 12px 35px rgba(255, 30, 30, 0.12);
+}
+
+/* Zoom gambar */
+.project-image img,
+.gallery-item img {
+    transition: transform 0.5s ease;
+}
+
+.project-image,
+.gallery-item {
+    overflow: hidden;
+}
+
+.project-card:hover .project-image img,
+.gallery-item:hover img {
+    transform: scale(1.06);
+}
+
+/* Tombol */
+.btn {
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background-color 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(255, 30, 30, 0.2);
+}
+
+/* Aksesibilitas */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .js-reveal {
+        opacity: 1;
+        transform: none;
+    }
+}
+
