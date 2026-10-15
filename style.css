@@ -1829,3 +1829,135 @@ footer p {
     }
 }
 
+
+/* ===== DYNAMIC CINEMATIC BACKGROUND ===== */
+
+body {
+    background: #050505;
+}
+
+/* Lapisan background di belakang seluruh konten */
+.animated-background {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+    background:
+        radial-gradient(
+            ellipse at 20% 45%,
+            rgba(100, 0, 0, 0.13),
+            transparent 45%
+        ),
+        #050505;
+}
+
+/* Cahaya merah yang bergerak otomatis */
+.red-glow {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    top: 10%;
+    left: 10%;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        rgba(255, 0, 0, 0.15),
+        rgba(150, 0, 0, 0.05) 40%,
+        transparent 70%
+    );
+    filter: blur(35px);
+    animation: redGlowMove 12s ease-in-out infinite alternate;
+}
+
+@keyframes redGlowMove {
+    0% {
+        transform: translate(0, 0) scale(0.8);
+    }
+    50% {
+        transform: translate(350px, 100px) scale(1.2);
+    }
+    100% {
+        transform: translate(650px, -80px) scale(0.9);
+    }
+}
+
+/* Cahaya mengikuti posisi kursor */
+.cursor-glow {
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        rgba(255, 0, 0, 0.12) 0%,
+        rgba(255, 0, 0, 0.045) 35%,
+        transparent 70%
+    );
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+body.cursor-active .cursor-glow {
+    opacity: 1;
+}
+
+/* Garis geometris dekoratif */
+.background-lines {
+    position: absolute;
+    inset: -50%;
+    background-image:
+        linear-gradient(
+            45deg,
+            transparent 49.9%,
+            rgba(255, 0, 0, 0.17) 50%,
+            transparent 50.1%
+        ),
+        linear-gradient(
+            -45deg,
+            transparent 49.9%,
+            rgba(255, 0, 0, 0.08) 50%,
+            transparent 50.1%
+        );
+    background-size: 650px 650px, 850px 850px;
+    animation: linesMove 35s linear infinite;
+    opacity: 0.6;
+}
+
+@keyframes linesMove {
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+    to {
+        transform: translate3d(180px, 120px, 0);
+    }
+}
+
+/* Partikel merah */
+#particles-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Konten website tetap berada di atas background */
+body > *:not(.animated-background) {
+    position: relative;
+}
+
+/* Animasi lebih ringan untuk pengguna yang memilih reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .red-glow,
+    .background-lines {
+        animation: none;
+    }
+
+    .cursor-glow {
+        display: none;
+    }
+}
+
